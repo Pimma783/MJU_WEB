@@ -6,7 +6,7 @@ function Login(event) {
   if (userType === 'student') {
     window.location.href = './student/index.html';
   } else if (userType === 'teacher') {
-    window.location.href = './teacher/index.html';
+    window.location.href = './teacherpage/index.html';
   } else {
     alert('กรุณาเลือกประเภทผู้ใช้');
   }
