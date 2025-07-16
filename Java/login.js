@@ -1,5 +1,5 @@
 function Login(event) {
-  event.preventDefault(); // ป้องกันฟอร์มส่งเอง
+  event.preventDefault(); 
 
   const userType = document.getElementById('userType').value;
 
