@@ -13,3 +13,9 @@
     .animate-slideFade {
       animation: slideFade 0.5s ease-out;
     }
+
+    @supports not ((-webkit-backdrop-filter: blur(4px)) or (backdrop-filter: blur(4px))) {
+      .no-backdrop {
+        background-color: white;
+      }
+    }
