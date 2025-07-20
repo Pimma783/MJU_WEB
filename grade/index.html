@@ -1,201 +1,147 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>มหาวิทยาลัย - เกรดรายบุคคล</title>
-  <style>
-    :root {
-      --main-bg-color: #2e7d32; /* เขียวเข้ม */
-      --main-text-color: #ffffff; /* ตัวหนังสือบนพื้นเข้ม */
-      --accent-color: #81c784; /* เขียวอ่อน เน้น */
-      --body-bg-color: #e8f5e9; /* พื้นหลังเนื้อหา */
-      --input-bg-color: #ffffff;
-      --input-border-color: #a5d6a7;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--body-bg-color);
-      color: #333;
-    }
-
-    header {
-      background-color: var(--main-bg-color);
-      color: var(--main-text-color);
-      padding: 20px 30px;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 1.2px;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 30px 40px;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      color: var(--main-bg-color);
-      margin-bottom: 15px;
-    }
-
-    h2 {
-      color: var(--main-bg-color);
-      margin-top: 40px;
-      margin-bottom: 15px;
-    }
-
-    label {
-      font-weight: 600;
-      margin-bottom: 5px;
-      display: block;
-      color: var(--main-bg-color);
-    }
-
-    input[type="text"] {
-      padding: 10px 12px;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: 1px solid var(--input-border-color);
-      background-color: var(--input-bg-color);
-      transition: border-color 0.3s ease;
-      width: 100%;
-      max-width: 400px;
-      margin-bottom: 20px;
-    }
-
-    input[type="text"]:focus {
-      border-color: var(--accent-color);
-      outline: none;
-    }
-
-    /* ตารางเกรด */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid var(--input-border-color);
-      padding: 12px 15px;
-      text-align: center;
-    }
-
-    th {
-      background-color: var(--main-bg-color);
-      color: var(--main-text-color);
-    }
-
-    tbody tr:nth-child(even) {
-      background-color: #f1f8e9;
-    }
-
-    /* ส่วนสรุป */
-    .summary {
-      margin-top: 25px;
-      padding: 15px;
-      background-color: #f1f8e9;
-      border-left: 5px solid var(--main-bg-color);
-      border-radius: 5px;
-      font-weight: bold;
-      color: #2e7d32;
-    }
-
-    /* ปุ่ม */
-    button {
-      background-color: var(--main-bg-color);
-      color: var(--main-text-color);
-      padding: 12px 0;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 100%;
-      max-width: 400px;
-      margin-top: 20px;
-    }
-
-    button:hover {
-      background-color: #1b5e20;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>มหาวิทยาลัย - เกรดรายบุคคล</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body>
-  <header>
-    มหาวิทยาลัยของเรา - เกรดรายบุคคล
-  </header>
 
-  <main>
-    <h1>ตรวจสอบเกรดรายบุคคล</h1>
-    <p>กรุณากรอกรหัสนักศึกษาเพื่อดูเกรดรายวิชา</p>
+<body class="bg-green-50 text-gray-900 font-sans">
+
+<!-- Navbar -->
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+    <!-- ส่วนหัวของเว็บไซต์ (Navbar) -->
+    <header class="bg-gray-100 shadow-md sticky top-0 z-50">
+        <div class="w-full px-4 md:px-0 py-4 flex justify-between items-center">
+
+            <!-- โลโก้และชื่อมหาวิทยาลัยด้านซ้าย -->
+            <div class="flex items-center space-x-4">
+                <!-- โลโก้กลม -->
+                <img src="/png/LOGO_MJU.png" alt="โลโก้ MJU" class="w-16 h-16 object-contain" />
+
+                <!-- ข้อความชื่อมหาวิทยาลัย -->
+                <div class="leading-tight">
+                    <h1 class="text-xl font-semibold text-gray-800">Maejo University</h1>
+                    <p class="text-sm text-gray-700">มหาวิทยาลัยแม่โจ้</p>
+                </div>
+            </div>
+
+            <!-- ปุ่ม Hamburger (เฉพาะบนมือถือ) -->
+            <button id="hamburger" class="md:hidden text-green-900 text-2xl focus:outline-none">
+                ☰
+            </button>
+
+            <!-- เมนูหลัก + ปุ่ม Logout (แสดงเฉพาะหน้าจอ md ขึ้นไป) -->
+            <div class="hidden md:flex items-center space-x-6 text-sm md:text-base">
+                <!-- เมนูหลัก -->
+                <nav class="flex space-x-6">
+                    <a href="../teacherpage/index.html"class="hover:text-green-700 transition duration-300 transform hover:scale-105">หน้าแรก</a>
+                    <a href="../Courses/index.html"class="hover:text-green-700 transition duration-300 transform hover:scale-105">รายวิชาที่สอน</a>
+                    <a href="../timetable/index.html"class="hover:text-green-700 transition duration-300 transform hover:scale-105">บันทึกเกรดรายบุคคล</a>
+                </nav>
+
+                <!-- ปุ่ม Logout -->
+               <button onclick="logoutConfirm()"
+                    class="flex items-center space-x-2 bg-green-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition duration-300 text-sm shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H5a3 3 0 01-3-3V7a3 3 0 013-3h5a3 3 0 013 3v1" />
+                    </svg>
+                    <span>ออกจากระบบ</span>
+                </button>
+            </div>
+        </div>
+        <!-- เมนูมือถือ (จะแสดงเมื่อคลิก ☰) -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
+            <a href="../teacherpage/index.html"class="block text-black-800">หน้าแรก</a>
+            <a href="../Courses/index.html" class="block text-black-800">รายวิชาที่สอน</a>
+            <a href="../grade/index.html" class="block text-black-800">บันทึกเกรดรายบุคคล</a>
+            <!-- ปุ่ม Logout ในมือถือ -->
+            <button onclick="logoutConfirm()"
+                class="w-full bg-green-600 text-white mt-2 py-2 rounded-lg text-center hover:bg-red-700 transition duration-300">
+                ออกจากระบบ
+            </button>
+        </div>
+    </header>
+
+<main class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6 mt-6 mb-10">
+    <h1 class="text-2xl font-bold text-green-700 mb-2">📘 ตรวจสอบเกรดรายบุคคล</h1>
+    <p class="mb-6 text-gray-600">กรุณากรอกรหัสนักศึกษาเพื่อดูเกรดรายวิชา</p>
 
     <!-- ฟอร์มกรอกข้อมูล -->
-    <form action="#" method="POST">
-      <label for="studentID">รหัสนักศึกษา</label>
-      <input type="text" id="studentID" name="studentID" placeholder="กรอกรหัสนักศึกษา เช่น 6501234567" required />
+    <form action="#" method="POST" class="space-y-6">
+        <div>
+            <label for="studentID" class="block text-green-700 font-medium mb-1">รหัสนักศึกษา</label>
+            <input type="text" id="studentID" name="studentID"
+                class="w-full max-w-sm border border-green-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+                placeholder="กรอกรหัสนักศึกษา เช่น 6501234567" required />
+        </div>
 
-      <h2>ผลการเรียน</h2>
-      <p>รายวิชาที่ได้เรียนในภาคเรียนล่าสุด</p>
+        <!-- ตารางแสดงเกรด -->
+        <div>
+            <h2 class="text-xl font-semibold text-green-700 mb-1">📄 ผลการเรียน</h2>
+            <p class="text-gray-600 mb-3">รายวิชาที่ได้เรียนในภาคเรียนล่าสุด</p>
 
-      <!-- ตารางแสดงเกรด -->
-      <table>
-        <thead>
-          <tr>
-            <th>รหัสวิชา</th>
-            <th>ชื่อวิชา</th>
-            <th>หน่วยกิต</th>
-            <th>เกรด</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- ตัวอย่างเกรด -->
-          <tr>
-            <td>CAL101</td>
-            <td>แคลคูลัส 1</td>
-            <td>3</td>
-            <td>A</td>
-          </tr>
-          <tr>
-            <td>PROG102</td>
-            <td>การเขียนโปรแกรมเบื้องต้น</td>
-            <td>3</td>
-            <td>B+</td>
-          </tr>
-          <tr>
-            <td>ENG104</td>
-            <td>ภาษาอังกฤษเชิงวิชาการ</td>
-            <td>2</td>
-            <td>A</td>
-          </tr>
-          <tr>
-            <td>PHY103</td>
-            <td>ฟิสิกส์พื้นฐาน</td>
-            <td>3</td>
-            <td>B</td>
-          </tr>
-          <!-- เพิ่มรายวิชาได้ที่นี่ -->
-        </tbody>
-      </table>
+            <div class="overflow-x-auto">
+                <table class="min-w-full border border-green-200 text-center text-sm">
+                    <thead class="bg-green-100 text-green-800">
+                        <tr>
+                            <th class="p-2 border">รหัสวิชา</th>
+                            <th class="p-2 border">ชื่อวิชา</th>
+                            <th class="p-2 border">หน่วยกิต</th>
+                            <th class="p-2 border">เกรด</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-green-50">
+                        <tr class="hover:bg-green-100">
+                            <td class="border p-2">CAL101</td>
+                            <td class="border p-2">แคลคูลัส 1</td>
+                            <td class="border p-2">3</td>
+                            <td class="border p-2">A</td>
+                        </tr>
+                        <tr class="hover:bg-green-100">
+                            <td class="border p-2">PROG102</td>
+                            <td class="border p-2">การเขียนโปรแกรมเบื้องต้น</td>
+                            <td class="border p-2">3</td>
+                            <td class="border p-2">B+</td>
+                        </tr>
+                        <tr class="hover:bg-green-100">
+                            <td class="border p-2">ENG104</td>
+                            <td class="border p-2">ภาษาอังกฤษเชิงวิชาการ</td>
+                            <td class="border p-2">2</td>
+                            <td class="border p-2">A</td>
+                        </tr>
+                        <tr class="hover:bg-green-100">
+                            <td class="border p-2">PHY103</td>
+                            <td class="border p-2">ฟิสิกส์พื้นฐาน</td>
+                            <td class="border p-2">3</td>
+                            <td class="border p-2">B</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-      <!-- สรุปผลเกรดรวม -->
-      <div class="summary">
-        เกรดเฉลี่ย (GPA): <span id="gpa">3.50</span>
-      </div>
+            <!-- สรุปผลเกรด -->
+            <div
+                class="mt-4 p-4 bg-green-100 border-l-4 border-green-700 text-green-800 font-semibold rounded">
+                เกรดเฉลี่ย (GPA): <span class="font-bold">3.50</span>
+            </div>
+        </div>
 
-      <button type="submit">ยืนยัน</button>
+        <button type="submit"
+            class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded shadow w-full max-w-sm">
+             ยืนยัน
+        </button>
     </form>
-  </main>
+</main>
+
+<footer class="bg-green-800 text-white text-center py-4">
+    © 2025 Maejo University
+</footer>
+
 </body>
 </html>
