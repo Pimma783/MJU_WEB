@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>มหาวิทยาลัย - เกรดรายบุคคล</title>
+  <style>
+    :root {
+      --main-bg-color: #2e7d32; /* เขียวเข้ม */
+      --main-text-color: #ffffff;
+      --body-bg-color: #f0f4f0;
+      --table-border: #c8e6c9;
+      --table-alt: #f1f8e9;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background-color: var(--body-bg-color);
+      color: #333;
+    }
+
+    header {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      padding: 15px;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* หัวข้อภาคการศึกษา */
+    .semester-header {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      text-align: center;
+      font-weight: bold;
+      padding: 8px;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    /* ตารางเกรดรายวิชา */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+    }
+
+    th, td {
+      border: 1px solid var(--table-border);
+      padding: 8px 10px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #a5d6a7;
+      color: #1b5e20;
+      font-weight: bold;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: var(--table-alt);
+    }
+
+    /* สรุปผลรวม */
+    .summary-tables {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .summary-box {
+      flex: 1;
+      min-width: 180px;
+      border: 1px solid var(--table-border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .summary-box h3 {
+      background-color: #eeeeee;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin: 0;
+      padding: 5px;
+      color: #2e7d32;
+    }
+
+    .summary-box table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .summary-box td, .summary-box th {
+      border: 1px solid var(--table-border);
+      padding: 5px;
+      font-size: 0.85rem;
+    }
+
+    .summary-box th {
+      background-color: var(--table-alt);
+      color: #2e7d32;
+      font-weight: bold;
+      width: 50%;
+    }
+
+    /* หมายเหตุ */
+    .note {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 15px;
+      border-top: 1px dashed #ccc;
+      padding-top: 8px;
+    }
+
+    .note strong {
+      color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    มหาวิทยาลัยของเรา - เกรดรายบุคคล
+  </header>
+
+  <main>
+    <div class="semester-header">ภาคการศึกษาที่ 1/2568</div>
+
+    <!-- ตารางรายวิชา -->
+    <table>
+      <thead>
+        <tr>
+          <th>รหัสวิชา</th>
+          <th>ชื่อรายวิชา</th>
+          <th>หน่วยกิต</th>
+          <th>เกรด</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10301211</td>
+          <td>คณิตศาสตร์สำหรับวิทยาการคอมพิวเตอร์</td>
+          <td>3</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>10301222</td>
+          <td>โครงสร้างข้อมูลและอัลกอริทึม</td>
+          <td>3</td>
+          <td>B+</td>
+        </tr>
+        <tr>
+          <td>10301223</td>
+          <td>ฐานข้อมูลเชิงสัมพันธ์</td>
+          <td>3</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>10301231</td>
+          <td>ซอฟต์แวร์เทคโนโลยี</td>
+          <td>3</td>
+          <td>B</td>
+        </tr>
+        <tr>
+          <td>10700313</td>
+          <td>ภาษาอังกฤษเชิงวิชาการ</td>
+          <td>3</td>
+          <td>A</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ตารางสรุปผล -->
+    <div class="summary-tables">
+      <div class="summary-box">
+        <h3>THIS SEMESTER</h3>
+        <table>
+          <tr><th>C.Register</th><td>18</td></tr>
+          <tr><th>C.Earn</th><td>18</td></tr>
+          <tr><th>CA</th><td>18</td></tr>
+          <tr><th>GP</th><td>58.5</td></tr>
+          <tr><th>GPA</th><td>3.25</td></tr>
+        </table>
+      </div>
+
+      <div class="summary-box">
+        <h3>CUMULATIVE TO THIS SEMESTER</h3>
+        <table>
+          <tr><th>C.Register</th><td>54</td></tr>
+          <tr><th>C.Earn</th><td>36</td></tr>
+          <tr><th>CA</th><td>36</td></tr>
+          <tr><th>GP</th><td>112.5</td></tr>
+          <tr><th>GPA</th><td>3.12</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- หมายเหตุ -->
+    <div class="note">
+      <strong>หมายเหตุ:</strong>  
+      CA = Credit Attempt, GP = Grade Point, GPA = GP / CA (Grade Point Average)  
+      โปรแกรมคำนวณเกรดจะไม่นับผลลัพธ์จาก Regrade F ไปคำนวณเฉลี่ยเกรดจริง
+    </div>
+  </main>
+</body>
+</html>
