@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>มหาวิทยาลัย - ลงทะเบียนเรียน</title>
+  <style>
+    :root {
+      --main-bg-color: #006600;
+      --main-text-color: #ffffff;
+      --accent-color: #ffcc00;
+      --body-bg-color: #f0f4f8;
+      --input-bg-color: #ffffff;
+      --input-border-color: #ccc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--body-bg-color);
+      color: #333;
+    }
+
+    header {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      padding: 20px 30px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: var(--main-bg-color);
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: var(--main-bg-color);
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+      color: var(--main-bg-color);
+    }
+
+    select {
+      padding: 10px 12px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid var(--input-border-color);
+      background-color: var(--input-bg-color);
+      transition: border-color 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 25px;
+    }
+
+    select:focus {
+      border-color: var(--accent-color);
+      outline: none;
+    }
+
+    /* ตารางหลักสูตร */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid var(--input-border-color);
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* ปุ่มส่ง */
+    button {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      padding: 12px 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #006600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    มหาวิทยาลัยของเรา - ลงทะเบียนเรียน
+  </header>
+
+  <main>
+    <h1>เกี่ยวกับการลงทะเบียนเรียน</h1>
+    <p>กรุณาเลือกคณะและระดับการศึกษาที่ต้องการลงทะเบียนเรียน</p>
+
+    <!-- ฟอร์มเลือกคณะและระดับการศึกษา -->
+    <form action="#" method="POST">
+      <label for="faculty">เลือกคณะ</label>
+      <select id="faculty" name="faculty" required>
+        <option value="" disabled selected>-- กรุณาเลือกคณะ --</option>
+        <option value="science">คณะวิทยาศาสตร์</option>
+        <option value="engineering">คณะวิศวกรรมศาสตร์</option>
+        <option value="business">คณะบริหารธุรกิจ</option>
+        <option value="medicine">คณะแพทยศาสตร์</option>
+        <option value="arts">คณะศิลปศาสตร์</option>
+        <option value="education">คณะศึกษาศาสตร์</option>
+        <!-- เพิ่มคณะอื่น ๆ ได้ที่นี่ -->
+      </select>
+
+      <label for="degreeLevel">ระดับการศึกษา</label>
+      <select id="degreeLevel" name="degreeLevel" required>
+        <option value="" disabled selected>-- กรุณาเลือกระดับการศึกษา --</option>
+        <option value="bachelor">ปริญญาตรี</option>
+        <option value="master">ปริญญาโท</option>
+        <option value="doctor">ปริญญาเอก</option>
+        <option value="diploma">ประกาศนียบัตร</option>
+        <!-- เพิ่มระดับอื่น ๆ ได้ที่นี่ -->
+      </select>
+
+      <!-- ตารางหลักสูตรที่เปิดสอน -->
+      <h2>หลักสูตรที่เปิดสอน</h2>
+      <p>ตารางนี้แสดงหลักสูตรต่าง ๆ ที่เปิดสอนในแต่ละคณะและระดับการศึกษา</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>รหัสหลักสูตร</th>
+            <th>ชื่อหลักสูตร</th>
+            <th>คณะ</th>
+            <th>ระดับการศึกษา</th>
+            <th>ระยะเวลา</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--
+            ตัวอย่างหลักสูตร
+            เติมข้อมูลจริง ๆ ได้ที่นี่ หรือลองเพิ่ม row ใหม่ได้ตามต้องการ
+          -->
+          <tr>
+            <td>CS101</td>
+            <td>วิทยาการคอมพิวเตอร์</td>
+            <td>คณะวิทยาศาสตร์</td>
+            <td>ปริญญาตรี</td>
+            <td>4 ปี</td>
+          </tr>
+          <tr>
+            <td>ENG201</td>
+            <td>วิศวกรรมเครื่องกล</td>
+            <td>คณะวิศวกรรมศาสตร์</td>
+            <td>ปริญญาตรี</td>
+            <td>4 ปี</td>
+          </tr>
+          <tr>
+            <td>BUS301</td>
+            <td>บริหารธุรกิจ</td>
+            <td>คณะบริหารธุรกิจ</td>
+            <td>ปริญญาโท</td>
+            <td>2 ปี</td>
+          </tr>
+          <!-- เพิ่มแถวหลักสูตรที่นี่ -->
+        </tbody>
+      </table>
+
+      <button type="submit">ลงทะเบียน</button>
+    </form>
+  </main>
+</body>
+</html>

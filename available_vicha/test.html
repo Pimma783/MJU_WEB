@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>มหาวิทยาลัย - ลงทะเบียนเรียน</title>
+  <style>
+    :root {
+      --main-bg-color: #2e7d32; /* เขียวเข้ม */
+      --main-text-color: #ffffff; /* ตัวหนังสือบนพื้นเข้ม */
+      --accent-color: #81c784; /* เขียวอ่อน เน้น */
+      --body-bg-color: #e8f5e9; /* พื้นหลังเนื้อหา */
+      --input-bg-color: #ffffff;
+      --input-border-color: #a5d6a7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--body-bg-color);
+      color: #333;
+    }
+
+    header {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      padding: 20px 30px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: var(--main-bg-color);
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: var(--main-bg-color);
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+      color: var(--main-bg-color);
+    }
+
+    select {
+      padding: 10px 12px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid var(--input-border-color);
+      background-color: var(--input-bg-color);
+      transition: border-color 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 25px;
+    }
+
+    select:focus {
+      border-color: var(--accent-color);
+      outline: none;
+    }
+
+    /* ตารางรายวิชา */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid var(--input-border-color);
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f1f8e9;
+    }
+
+    /* ปุ่มส่ง */
+    button {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      padding: 12px 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    มหาวิทยาลัยของเรา - ลงทะเบียนเรียน
+  </header>
+
+  <main>
+    <h1>ลงทะเบียนเรียนรายวิชา</h1>
+    <p>กรุณาเลือกรายวิชาที่ต้องการลงทะเบียนเรียน</p>
+
+    <!-- ฟอร์มลงทะเบียน -->
+    <form action="#" method="POST">
+      <label for="semester">ภาคเรียน</label>
+      <select id="semester" name="semester" required>
+        <option value="" disabled selected>-- กรุณาเลือกภาคเรียน --</option>
+        <option value="1">ภาคเรียนที่ 1</option>
+        <option value="2">ภาคเรียนที่ 2</option>
+        <option value="summer">ภาคเรียนฤดูร้อน</option>
+      </select>
+
+      <!-- ตารางรายวิชาที่เปิดสอน -->
+      <h2>รายวิชาที่เปิดสอน</h2>
+      <p>เลือกรายวิชาที่ต้องการ (ติ๊กเลือกวิชาแล้วกดยืนยัน)</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>เลือก</th>
+            <th>รหัสวิชา</th>
+            <th>ชื่อวิชา</th>
+            <th>หน่วยกิต</th>
+            <th>อาจารย์ผู้สอน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ตัวอย่างรายวิชา -->
+          <tr>
+            <td><input type="checkbox" name="subject" value="CAL101"></td>
+            <td>CAL101</td>
+            <td>แคลคูลัส 1</td>
+            <td>3</td>
+            <td>ผศ.ดร.สมชาย วิริยะ</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="subject" value="PROG102"></td>
+            <td>PROG102</td>
+            <td>การเขียนโปรแกรมเบื้องต้น</td>
+            <td>3</td>
+            <td>อ.วราภรณ์ สุขสันต์</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="subject" value="PHY103"></td>
+            <td>PHY103</td>
+            <td>ฟิสิกส์พื้นฐาน</td>
+            <td>3</td>
+            <td>รศ.ดร.สุชาติ พงษ์สวัสดิ์</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="subject" value="ENG104"></td>
+            <td>ENG104</td>
+            <td>ภาษาอังกฤษเชิงวิชาการ</td>
+            <td>2</td>
+            <td>อ.นริศรา จันทร์ทิพย์</td>
+          </tr>
+          <!-- เพิ่มรายวิชาใหม่ได้ตามต้องการ -->
+        </tbody>
+      </table>
+
+      <button type="submit">ยืนยันการลงทะเบียน</button>
+    </form>
+  </main>
+</body>
+</html>
