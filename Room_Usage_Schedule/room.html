@@ -23,10 +23,14 @@
             <button id="hamburger" class="md:hidden text-green-900 text-2xl focus:outline-none">☰</button>
             <div class="hidden md:flex items-center space-x-6 text-sm md:text-base">
                 <nav class="flex space-x-6">
-                    <a href="../student/index_stu.html" class="hover:text-green-700">หน้าแรก</a>
-                    <a href="../timetable/index_timetable.html" class="hover:text-green-700">ตารางเรียนนักศึกษา</a>
-                    <a href="index_room.html" class="hover:text-green-700">ตารางการใช้ห้อง</a>
-                    <a href="#" class="hover:text-green-700">ปฏิทินการศึกษา</a>
+                    <a href="../student/index.html"
+                        class="hover:text-green-700 transition duration-300 transform hover:scale-105">หน้าแรก</a>
+                    <a href="../timetable/index.html"
+                        class="hover:text-green-700 transition duration-300 transform hover:scale-105">ตารางเรียนนักศึกษา</a>
+                    <a href="../Room_Usage_Schedule/index_room.html"
+                        class="hover:text-green-700 transition duration-300 transform hover:scale-105">ตารางการใช้ห้อง</a>
+                    <a href="../calendar/index.html"
+                        class="hover:text-green-700 transition duration-300 transform hover:scale-105 ">ปฏิทินการศึกษา</a>
                 </nav>
                 <button onclick="logoutConfirm()"
                     class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition duration-300 text-sm">
@@ -35,8 +39,8 @@
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
-            <a href="index_stu.html" class="block text-green-800">หน้าแรก</a>
-            <a href="../timetable/index_timetable.html" class="block text-green-800">ตารางเรียนนักศึกษา</a>
+            <a href="index.html" class="block text-green-800">หน้าแรก</a>
+            <a href="../timetable/index.html" class="block text-green-800">ตารางเรียนนักศึกษา</a>
             <a href="#" class="block text-green-800">ตารางการใช้ห้อง</a>
             <a href="#" class="block text-green-800">ปฏิทินการศึกษา</a>
             <button onclick="logoutConfirm()"
@@ -78,7 +82,7 @@
         <p class="text-green-700">Maejo University.</p>
     </footer>
 
-    
+
     <!-- Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
