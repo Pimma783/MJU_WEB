@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REG | มหาวิทยาลัยแม่โจ้</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gradient-to-br from-green-50 to-gray-100 min-h-screen flex flex-col font-sans text-gray-900">
+
+    <!-- Navbar -->
+    <header class="bg-gray-100 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="../png/LOGO_MJU.png" alt="โลโก้ MJU" class="w-16 h-16 object-contain" />
+                <div class="leading-tight">
+                    <h1 class="text-xl font-semibold text-gray-800">Maejo University</h1>
+                    <p class="text-sm text-gray-700">มหาวิทยาลัยแม่โจ้</p>
+                </div>
+            </div>
+            <button id="hamburger" class="md:hidden text-green-900 text-2xl focus:outline-none">☰</button>
+            <div class="hidden md:flex items-center space-x-6 text-sm md:text-base">
+                <nav class="flex space-x-6">
+                    <a href="../student/index_stu.html" class="hover:text-green-700">หน้าแรก</a>
+                    <a href="../timetable/index_timetable.html" class="hover:text-green-700">ตารางเรียนนักศึกษา</a>
+                    <a href="index_room.html" class="hover:text-green-700">ตารางการใช้ห้อง</a>
+                    <a href="#" class="hover:text-green-700">ปฏิทินการศึกษา</a>
+                </nav>
+                <button onclick="logoutConfirm()"
+                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition duration-300 text-sm">
+                    ออกจากระบบ
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
+            <a href="index_stu.html" class="block text-green-800">หน้าแรก</a>
+            <a href="../timetable/index_timetable.html" class="block text-green-800">ตารางเรียนนักศึกษา</a>
+            <a href="#" class="block text-green-800">ตารางการใช้ห้อง</a>
+            <a href="#" class="block text-green-800">ปฏิทินการศึกษา</a>
+            <button onclick="logoutConfirm()"
+                class="w-full bg-green-600 text-white mt-2 py-2 rounded-lg text-center hover:bg-green-700 transition duration-300">
+                ออกจากระบบ
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-4xl mx-auto mt-10 bg-white shadow-xl rounded-2xl p-8 border border-gray-200">
+            <h1 class="text-3xl font-extrabold text-center text-green-700 mb-8">
+                รายละเอียดห้อง <span class="text-gray-800"></span>
+            </h1>
+
+            <section class="mb-10">
+                <h2 class="text-xl font-semibold text-red-600 border-b pb-2 mb-4">📌 ช่วงเวลาที่ห้องไม่ว่าง</h2>
+                <ul class="space-y-3 bg-red-50 p-5 rounded-xl border border-red-200 shadow-sm">
+                    <li class="text-gray-800">🕗 เวลา <strong>08:00 - 10:00</strong> — ผู้ใช้ห้อง: <em>รศ. ดร.บูรพา
+                            มหัทธีรนางกูร</em></li>
+                    <li class="text-gray-800">🕐 เวลา <strong>13:00 - 15:00</strong> — ผู้ใช้ห้อง: พลเอก บูรพา
+                        มหัทธีรนางกูร</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-green-600 border-b pb-2 mb-4">✅ ช่วงเวลาที่ห้องว่าง</h2>
+                <ul class="space-y-3 bg-green-50 p-5 rounded-xl border border-green-200 shadow-sm">
+                    <li class="text-gray-800">🕙 เวลา <strong>10:00 - 13:00</strong> — ว่าง</li>
+                    <li class="text-gray-800">🕒 เวลา <strong>15:00 - 17:00</strong> — ว่าง</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-100 text-center py-6 shadow-inner">
+        <p class="text-green-700">Maejo University.</p>
+    </footer>
+
+    
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+
+        function logoutConfirm() {
+            const confirmLogout = confirm("คุณต้องการออกจากระบบหรือไม่?");
+            if (confirmLogout) {
+                window.location.href = "../index.html";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
