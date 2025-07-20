@@ -53,6 +53,14 @@
                 รายละเอียดห้อง <span class="text-gray-800"></span>
             </h1>
 
+            <div class="text-left mb-6"> <!--ปุ่ม ย้อนกลับ-->
+                <button onclick="history.back()"
+                    class="inline-flex items-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition duration-300">
+                    ⬅️ ย้อนกลับ
+                </button>
+            </div>
+
+
             <section class="mb-10">
                 <h2 class="text-xl font-semibold text-red-600 border-b pb-2 mb-4">📌 ช่วงเวลาที่ห้องไม่ว่าง</h2>
                 <ul class="space-y-3 bg-red-50 p-5 rounded-xl border border-red-200 shadow-sm">
@@ -78,25 +86,25 @@
         <p class="text-green-700">Maejo University.</p>
     </footer>
 
-    
-    <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.getElementById('hamburger');
-            const mobileMenu = document.getElementById('mobile-menu');
-            hamburger.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        });
-
-        function logoutConfirm() {
-            const confirmLogout = confirm("คุณต้องการออกจากระบบหรือไม่?");
-            if (confirmLogout) {
-                window.location.href = "../index.html";
-            }
-        }
-    </script>
 
 </body>
+
+<!-- Scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    });
+
+    function logoutConfirm() {
+        const confirmLogout = confirm("คุณต้องการออกจากระบบหรือไม่?");
+        if (confirmLogout) {
+            window.location.href = "../index.html";
+        }
+    }
+</script>
 
 </html>
