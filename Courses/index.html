@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>รายวิชาที่อาจารย์สอน | มหาวิทยาลัยแม่โจ้</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+  <!-- ส่วนหัวของเว็บไซต์ (Navbar) -->
+  <header class="bg-gray-100 shadow-md sticky top-0 z-50">
+    <div class="w-full px-4 md:px-0 py-4 flex justify-between items-center">
+
+      <!-- โลโก้และชื่อมหาวิทยาลัยด้านซ้าย -->
+      <div class="flex items-center space-x-4">
+        <!-- โลโก้กลม -->
+        <img src="/png/LOGO_MJU.png" alt="โลโก้ MJU" class="w-16 h-16 object-contain" />
+
+        <!-- ข้อความชื่อมหาวิทยาลัย -->
+        <div class="leading-tight">
+          <h1 class="text-xl font-semibold text-gray-800">Maejo University</h1>
+          <p class="text-sm text-gray-700">มหาวิทยาลัยแม่โจ้</p>
+        </div>
+      </div>
+
+      <!-- ปุ่ม Hamburger (เฉพาะบนมือถือ) -->
+      <button id="hamburger" class="md:hidden text-green-900 text-2xl focus:outline-none">
+        ☰
+      </button>
+
+      <!-- เมนูหลัก + ปุ่ม Logout (แสดงเฉพาะหน้าจอ md ขึ้นไป) -->
+      <div class="hidden md:flex items-center space-x-6 text-sm md:text-base">
+        <!-- เมนูหลัก -->
+        <nav class="flex space-x-6">
+          <a href="../teacherpage/index.html"
+            class="hover:text-green-700 transition duration-300 transform hover:scale-105">หน้าแรก</a>
+          <a href="../Courses/index.html"
+            class="hover:text-green-700 transition duration-300 transform hover:scale-105">รายวิชาที่สอน</a>
+          <a href="../timetable/index.html"
+            class="hover:text-green-700 transition duration-300 transform hover:scale-105">บันทึกเกรดรายบุคคล</a>
+        </nav>
+
+        <!-- ปุ่ม Logout -->
+        <button onclick="logoutConfirm()"
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition duration-300 text-sm">
+          ออกจากระบบ
+        </button>
+      </div>
+    </div>
+
+    <!-- เมนูมือถือ (จะแสดงเมื่อคลิก ☰) -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
+      <a href="../teacherpage/index.html"class="block text-black-800">หน้าแรก</a>
+      <a href="../Courses/index.html" class="block text-black-800">รายวิชาที่สอน</a>
+      <a href="../timetable/index.html" class="block text-black-800">บันทึกเกรดรายบุคคล</a>
+      <!-- ปุ่ม Logout ในมือถือ -->
+      <button onclick="logoutConfirm()"
+        class="w-full bg-green-600 text-white mt-2 py-2 rounded-lg text-center hover:bg-green-700 transition duration-300">
+        ออกจากระบบ
+      </button>
+    </div>
+  </header>
+  <!-- เนื้อหา -->
+  <main class="flex-grow p-8">
+    <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-green-800 mb-8 text-center">
+        รายวิชาที่อาจารย์ <span class="italic text-gray-600">บูรพา มหัทธีรนางกูร</span> สอนในปีการศึกษา 2568
+      </h2>
+
+      <!-- ตารางรายวิชา -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full border border-gray-300 rounded-lg overflow-hidden">
+          <thead class="bg-green-100 text-green-900 font-semibold">
+            <tr>
+              <th class="px-6 py-3 border-b border-green-300 text-center hover:bg-green-200 cursor-default transition">
+                รหัสวิชา</th>
+              <th class="px-6 py-3 border-b border-green-300 hover:bg-green-200 cursor-default transition">ชื่อวิชา</th>
+              <th class="px-6 py-3 border-b border-green-300 text-center hover:bg-green-200 cursor-default transition">
+                หน่วยกิต</th>
+              <th class="px-6 py-3 border-b border-green-300 text-center hover:bg-green-200 cursor-default transition">
+                ภาคเรียน</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-green-50 transition-colors duration-200 cursor-default">
+              <td class="px-6 py-4 border-b border-green-200 text-center font-mono text-green-700">CSC101</td>
+              <td class="px-6 py-4 border-b border-green-200">พื้นฐานคอมพิวเตอร์</td>
+              <td class="px-6 py-4 border-b border-green-200 text-center font-semibold">3(2-2-5)</td>
+              <td class="px-6 py-4 border-b border-green-200 text-center font-semibold">1/2568</td>
+            </tr>
+            <tr class="hover:bg-green-50 transition-colors duration-200 cursor-default">
+              <td class="px-6 py-4 border-b border-green-200 text-center font-mono text-green-700">CSC202</td>
+              <td class="px-6 py-4 border-b border-green-200">โครงสร้างข้อมูล</td>
+              <td class="px-6 py-4 border-b border-green-200 text-center font-semibold">3(3-0-6)</td>
+              <td class="px-6 py-4 border-b border-green-200 text-center font-semibold">2/2568</td>
+            </tr>
+            <tr class="hover:bg-green-50 transition-colors duration-200 cursor-default">
+              <td class="px-6 py-4 border-green-200 text-center font-mono text-green-700">CSC303</td>
+              <td class="px-6 py-4 border-green-200">ฐานข้อมูล</td>
+              <td class="px-6 py-4 border-green-200 text-center font-semibold">3(3-0-6)</td>
+              <td class="px-6 py-4 border-green-200 text-center font-semibold">1/2568</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- ส่วนท้าย -->
+  <footer class="w-full bg-green-200 text-center py-2 absolute bottom-0">
+    © 2025 Maejo University
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+
+    function logoutConfirm() {
+      const confirmLogout = confirm("คุณต้องการออกจากระบบหรือไม่?");
+      if (confirmLogout) {
+        window.location.href = "../index.html";
+      }
+    }
+
+  </script>
+</body>
+
+</html>
