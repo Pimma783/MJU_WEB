@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REG | มหาวิทยาลัยแม่โจ้</title>
+
+    <!-- เรียกใช้ Tailwind CSS จาก CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+    <!-- ส่วนหัวของเว็บไซต์ (Navbar) -->
+    <header class="bg-gray-100 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+
+            <!-- โลโก้และชื่อมหาวิทยาลัยด้านซ้าย -->
+            <div class="flex items-center space-x-4">
+                <!-- โลโก้กลม -->
+                <img src="../png/LOGO_MJU.png" alt="โลโก้ MJU" class="w-16 h-16 object-contain" />
+
+                <!-- ข้อความชื่อมหาวิทยาลัย -->
+                <div class="leading-tight">
+                    <h1 class="text-xl font-semibold text-gray-800">Maejo University</h1>
+                    <p class="text-sm text-gray-700">มหาวิทยาลัยแม่โจ้</p>
+                </div>
+            </div>
+            <!-- ปุ่ม Hamburger (เฉพาะบนมือถือ) -->
+            <button id="hamburger" class="md:hidden text-green-900 text-2xl focus:outline-none">
+                ☰
+            </button>
+
+            <!-- เมนูหลัก + ปุ่ม Logout (แสดงเฉพาะหน้าจอ md ขึ้นไป) -->
+            <div class="hidden md:flex items-center space-x-6 text-sm md:text-base">
+                <!-- เมนูหลัก -->
+                <nav class="flex space-x-6">
+                    <a href="../student/index_stu.html" class="hover:text-green-700">หน้าแรก</a>
+                    <a href="../timetable/index_timetable.html" class="hover:text-green-700">ตารางเรียนนักศึกษา</a>
+                    <a href="index_room.html" class="hover:text-green-700">ตารางการใช้ห้อง</a>
+                    <a href="../calendar/index_cal.html" class="hover:text-green-700">ปฏิทินการศึกษา</a>
+                </nav>
+
+                <!-- ปุ่ม Logout -->
+                <button onclick="logoutConfirm()"
+                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition duration-300 text-sm">
+                    ออกจากระบบ
+                </button>
+            </div>
+        </div>
+
+        <!-- เมนูมือถือ (จะแสดงเมื่อคลิก ☰) -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
+            <a href="../student/index_stu.html" class="block text-green-800">หน้าแรก</a>
+            <a href="../timetable/index_timetable.html" class="block text-green-800">ตารางเรียนนักศึกษา</a>
+            <a href="index_room.html" class="block text-green-800">ตารางการใช้ห้อง</a>
+            <a href="../calendar/index_cal.html" class="block text-green-800">ปฏิทินการศึกษา</a>
+            <!-- ปุ่ม Logout ในมือถือ -->
+            <button onclick="logoutConfirm()"
+                class="w-full bg-green-600 text-white mt-2 py-2 rounded-lg text-center hover:bg-green-700 transition duration-300">
+                ออกจากระบบ
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-2xl font-semibold text-green-800 mb-4">ตารางการใช้ห้อง</h2>
+
+        <!-- ช่องค้นหา -->
+        <div class="mb-4">
+            <input type="text" placeholder="🔍 ค้นหาชื่ออาคาร..."
+                class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div class="overflow-x-auto bg-white rounded-lg shadow">
+            <table class="min-w-full divide-y divide-gray-300" id="roomTable">
+                <tbody class="bg-white divide-y divide-gray-200">
+
+                    <!-- แถวหัวมหาวิทยาลัย -->
+                    <tr class="bg-green-100">
+                        <td colspan="2" class="px-6 py-3 font-bold text-green-700 text-left">
+                            มหาวิทยาลัยแม่โจ้ เชียงใหม่
+                        </td>
+                    </tr>
+
+                    <!-- แถวหัวตาราง (รหัส / ชื่ออาคาร) -->
+                    <tr class="bg-gray-100 border-t border-b border-gray-300">
+                        <th
+                            class="px-6 py-2 text-left text-sm font-medium text-gray-700 border-r border-gray-300 w-1/4">
+                            รหัส</th>
+                        <th class="px-6 py-2 text-left text-sm font-medium text-gray-700">ชื่ออาคาร</th>
+                    </tr>
+
+                    <!-- แถวข้อมูลทั้งหมด -->
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">101</td>
+                        <td class="px-6 py-2">อาคารพัฒนาวิชาศึกษาทั่วไป</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">104</td>
+                        <td class="px-6 py-2">คณะวิศวกรรมและอุตสาหกรรมเกษตร</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">105</td>
+                        <td class="px-6 py-2">คณะศิลปศาสตร์</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">106</td>
+                        <td class="px-6 py-2">คณะเทคโนโลยีการประมงและทรัพยากรทางน้ำ</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">107</td>
+                        <td class="px-6 py-2">คณะบริหารธุรกิจ</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">108</td>
+                        <td class="px-6 py-2">ภาควิชาทรัพยากรดินและสิ่งแวดล้อม</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">109</td>
+                        <td class="px-6 py-2">อาคารเทคโนโลยีภูมิทัศน์</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">110</td>
+                        <td class="px-6 py-2">ศูนย์กีฬาเฉลิมพระเกียรติ (โซน B)</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">111</td>
+                        <td class="px-6 py-2">ศูนย์กล้วยไม้และไม้ดอกไม้ประดับ</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">112</td>
+                        <td class="px-6 py-2">คณะสัตวศาสตร์และเทคโนโลยี</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">113</td>
+                        <td class="px-6 py-2">อาคารการควบคุมแมลง</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">114</td>
+                        <td class="px-6 py-2">อาคารเกษตรพันธุ์</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">115</td>
+                        <td class="px-6 py-2">อาคารไม้ผล</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">116</td>
+                        <td class="px-6 py-2">อาคารพืชผัก</td>
+                    </tr>
+                    <tr onclick="window.location='room.html'" class="cursor-pointer hover:bg-green-100">
+                        <!--Code คลิกไปอีกหน้า-->
+                        <td class="px-6 py-2 border-r border-gray-200">140</td>
+                        <td class="px-6 py-2">อาคารเศรษฐศาสตร์</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <!-- ส่วนท้ายเว็บไซต์ -->
+    <footer class="bg-green-100 text-center py-6 shadow-inner mt-10">
+        <p class="text-green-700"> Maejo University.</p>
+    </footer>
+
+
+</body>
+<!-- JavaScript สำหรับเมนูมือถือ -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // เมื่อคลิก hamburger ให้แสดง/ซ่อนเมนูมือถือ
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    });
+
+    // ฟังก์ชัน Logout แบบยืนยัน
+    function logoutConfirm() {
+        const confirmLogout = confirm("คุณต้องการออกจากระบบหรือไม่?");
+        if (confirmLogout) {
+            window.location.href = "../index.html"; // ชี้กลับไปยังหน้า Login ที่อยู่หนึ่งระดับบน
+        }
+    }
+
+
+</script>
+
+</html>
