@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>มหาวิทยาลัย - เกรดรายบุคคล</title>
+  <style>
+    :root {
+      --main-bg-color: #2e7d32; /* เขียวเข้ม */
+      --main-text-color: #ffffff; /* ตัวหนังสือบนพื้นเข้ม */
+      --accent-color: #81c784; /* เขียวอ่อน เน้น */
+      --body-bg-color: #e8f5e9; /* พื้นหลังเนื้อหา */
+      --input-bg-color: #ffffff;
+      --input-border-color: #a5d6a7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--body-bg-color);
+      color: #333;
+    }
+
+    header {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      padding: 20px 30px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: var(--main-bg-color);
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: var(--main-bg-color);
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+      color: var(--main-bg-color);
+    }
+
+    input[type="text"] {
+      padding: 10px 12px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid var(--input-border-color);
+      background-color: var(--input-bg-color);
+      transition: border-color 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--accent-color);
+      outline: none;
+    }
+
+    /* ตารางเกรด */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid var(--input-border-color);
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f1f8e9;
+    }
+
+    /* ส่วนสรุป */
+    .summary {
+      margin-top: 25px;
+      padding: 15px;
+      background-color: #f1f8e9;
+      border-left: 5px solid var(--main-bg-color);
+      border-radius: 5px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    /* ปุ่ม */
+    button {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      padding: 12px 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    มหาวิทยาลัยของเรา - เกรดรายบุคคล
+  </header>
+
+  <main>
+    <h1>ตรวจสอบเกรดรายบุคคล</h1>
+    <p>กรุณากรอกรหัสนักศึกษาเพื่อดูเกรดรายวิชา</p>
+
+    <!-- ฟอร์มกรอกข้อมูล -->
+    <form action="#" method="POST">
+      <label for="studentID">รหัสนักศึกษา</label>
+      <input type="text" id="studentID" name="studentID" placeholder="กรอกรหัสนักศึกษา เช่น 6501234567" required />
+
+      <h2>ผลการเรียน</h2>
+      <p>รายวิชาที่ได้เรียนในภาคเรียนล่าสุด</p>
+
+      <!-- ตารางแสดงเกรด -->
+      <table>
+        <thead>
+          <tr>
+            <th>รหัสวิชา</th>
+            <th>ชื่อวิชา</th>
+            <th>หน่วยกิต</th>
+            <th>เกรด</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ตัวอย่างเกรด -->
+          <tr>
+            <td>CAL101</td>
+            <td>แคลคูลัส 1</td>
+            <td>3</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <td>PROG102</td>
+            <td>การเขียนโปรแกรมเบื้องต้น</td>
+            <td>3</td>
+            <td>B+</td>
+          </tr>
+          <tr>
+            <td>ENG104</td>
+            <td>ภาษาอังกฤษเชิงวิชาการ</td>
+            <td>2</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <td>PHY103</td>
+            <td>ฟิสิกส์พื้นฐาน</td>
+            <td>3</td>
+            <td>B</td>
+          </tr>
+          <!-- เพิ่มรายวิชาได้ที่นี่ -->
+        </tbody>
+      </table>
+
+      <!-- สรุปผลเกรดรวม -->
+      <div class="summary">
+        เกรดเฉลี่ย (GPA): <span id="gpa">3.50</span>
+      </div>
+
+      <button type="submit">ยืนยัน</button>
+    </form>
+  </main>
+</body>
+</html>
